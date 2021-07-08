@@ -1,12 +1,39 @@
-const express = require('express');
-const path = require('path');
+//* -----------------------------------------------------------------------------
+//* DEPENDENCIES
+//* -----------------------------------------------------------------------------
 
-const app = express();
-const port = process.env.PORT || 8080;
+//* Node modules
+import express, { Request, Response, Application } from 'express';
 
-// sendFile will go here
-app.use(express.static("../public"));
+//* -----------------------------------------------------------------------------
+//* CONFIGURATION
+//* -----------------------------------------------------------------------------
 
+const PROTOCOL: string = process.env.PROTOCOL || 'http';
+const HOST: string = process.env.HOST || 'localhost';
+const PORT: string = process.env.PORT || '3000';
 
-app.listen(port);
-console.log('Server started at http://localhost:' + port);
+const app: Application = express();
+
+//* -----------------------------------------------------------------------------
+//* MIDDLEWARES
+//* -----------------------------------------------------------------------------
+
+app.use(express.static('../public'));
+
+//* -----------------------------------------------------------------------------
+//* START SERVER
+//* -----------------------------------------------------------------------------
+
+//* Default page not found route
+app.use((_req: Request, res: Response) =>
+  res.status(404).json({ success: false, message: 'page not found' })
+);
+
+//* -----------------------------------------------------------------------------
+//* START SERVER
+//* -----------------------------------------------------------------------------
+
+app.listen(PORT, () =>
+  console.info(`server listening on ${PROTOCOL}://${HOST}:${PORT}`)
+);
