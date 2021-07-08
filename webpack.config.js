@@ -5,7 +5,7 @@ module.exports = {
 
   entry: "./src/server.ts",
   target: "node",
-  externals: [ /^[a-z\-0-9]+$/ ],
+  externals: [/^[a-z\-0-9]+$/],
   devtool: false,
 
   output: {
