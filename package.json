@@ -1,7 +1,7 @@
 {
   "name": "infotition-landing",
   "version": "1.0.0",
-  "description": "",
+  "description": "Coming soon Landing Page for Infotition",
   "main": "index.js",
   "scripts": {
     "start": "cd dist&& node server.js",
@@ -13,9 +13,13 @@
     "docker:build": "docker build . -t infotition/infotition-landing-page",
     "docker:start": "docker run -p 80:3000 infotition/infotition-landing-page"
   },
-  "keywords": [],
+  "keywords": ["landing-page", "html", "docker"],
   "author": "DevTobias",
-  "license": "ISC",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Infotition/infotition-landing-page.git"
+  },
   "devDependencies": {
     "@babel/core": "^7.14.6",
     "@babel/preset-env": "^7.14.7",
